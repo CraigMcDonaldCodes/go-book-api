@@ -22,7 +22,32 @@ func (db fakeDb) Get(id int64) Book {
 }
 
 func (db fakeDb) GetAll() []Book {
-	return nil
+
+	books := []Book{
+		{
+			Id:        1,
+			Isbn:      "foo",
+			Title:     "bar",
+			Author:    "foo",
+			Publisher: "bar",
+		},
+		{
+			Id:        2,
+			Isbn:      "foo",
+			Title:     "baz",
+			Author:    "foo",
+			Publisher: "baz",
+		},
+		{
+			Id:        3,
+			Isbn:      "foo",
+			Title:     "bat",
+			Author:    "foo",
+			Publisher: "bat",
+		},
+	}
+
+	return books
 }
 
 func (db *fakeDb) Delete(id int64) bool {
