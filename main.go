@@ -12,7 +12,7 @@ const address = "localhost:8080"
 
 func main() {
 
-	fmt.Println("Go Book API")
+	printBanner()
 
 	db := data.NewFakeDb()
 	handlers := handlers.NewHandlers(db)
