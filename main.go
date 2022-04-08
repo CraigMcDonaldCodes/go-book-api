@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/craigmcdonaldcodes/go-book-api/data"
 	"github.com/craigmcdonaldcodes/go-book-api/handlers"
 )
 
@@ -12,6 +13,9 @@ const address = "localhost:8080"
 func main() {
 
 	fmt.Println("Go Book API")
+
+	db := data.NewFakeDb()
+	handlers := handlers.NewHandlers(db)
 
 	http.HandleFunc("/books", handlers.GetAll)
 	err := http.ListenAndServe(address, nil)
