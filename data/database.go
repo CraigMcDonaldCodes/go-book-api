@@ -59,5 +59,5 @@ func (db *fakeDb) Update(id int64) bool {
 }
 
 func NewFakeDb() Db {
-	return nil
+	return &fakeDb{}
 }
