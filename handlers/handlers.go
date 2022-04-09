@@ -2,10 +2,13 @@ package handlers
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"github.com/craigmcdonaldcodes/go-book-api/data"
 )
+
+var logger = log.Default()
 
 type Handlers struct {
 	db data.Db
@@ -30,5 +33,6 @@ func (h *Handlers) GetAll(wr http.ResponseWriter, req *http.Request) {
 		// TODO return a 500 error?
 	}
 
+	logger.Printf("URL: %s, Client IP: %s\n", req.URL, req.RemoteAddr)
 	wr.Write(json)
 }
